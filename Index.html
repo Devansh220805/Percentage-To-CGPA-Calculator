@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>...CGPA...Calculater...</title>
+    <!--CSS code-->
+    <style>
+        button{
+    padding: 0.9074410163339383vh;
+    border-radius: 0.9074410163339383vh;
+}
+
+.div1{
+    text-align: right;    
+}
+
+h1{
+    background-color: rgb(12, 162, 127);
+    color: white;
+    text-align: center;
+    margin-top: 2.722323049001815vh;
+    margin-bottom: 5.44464609800363vh;
+    font-size: xxx-large;
+    border: 0.7vh solid black;
+
+}
+h3{
+    font-size: x-large;
+}
+.div{
+   
+    text-align: center;
+    border: .822323049001815vh solid rgb(1, 9, 7);
+    margin-left: 39.0625vw;
+    margin-right: 39.0625vw;
+    border-radius: 2.722323049001815vh;
+    background-color: rgb(12, 162, 127);
+    color: white;
+}
+
+#Percentage,#CGPA{
+    padding: 1.8vh;
+    font-size: 2.522323049001815vh;
+    text-align: center;
+    border-radius: 2.5vh;
+    border:  2px solid black;
+
+}
+
+p{
+    font-size: medium;
+}
+
+#p1{
+    background-color: white;
+    color: black;
+    border:  0.3629764065335753vh solid black;
+    padding: 1.722323049001815vh;
+    border-radius: 2.5vh;
+    margin-left: 6.352087114337568vh;
+    margin-right: 6.352087114337568vh;
+  
+}
+.footer{
+    background-color: rgb(12, 162, 127);
+    color: white;
+    border: 0.7vh solid black;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+    <div class="div1">
+        <button  class="btn">Theme</button>
+    </div>
+    <h1>...Percentage To CGPA Calculator...</h1>
+    <div class="div">
+        <h3>10.0 Grading Scale</h3>
+            <label for="Percentage" class="Percentage">Enter Percentage</label>
+            <br>
+            <input type="text" class="Percentage" id="Percentage">
+
+            <p>CGPA:</p>
+            <p id="p1">0</p> 
+        <br><br>
+    </div>
+    <div>
+        <p class="footer">......Thank you ......</p>
+    </div>
+</body>
+<!--JavaScript Code-->
+<script>
+    let btn = document.querySelector(".btn");
+let mode ="light";
+btn.addEventListener("click",() => {
+    if(mode==="light"){
+        mode ="dark";
+        document.querySelector("body").style.backgroundColor="rgb(54, 51, 51)";
+    }
+    else if(mode==="dark"){
+        mode = "light";
+        document.querySelector("body").style.backgroundColor="white";
+    }
+    console.log(mode);
+});
+const percentageInput = document.getElementById("Percentage");
+const cgpaOutput = document.getElementById("p1");
+
+percentageInput.addEventListener("input", function() {
+    let number = parseFloat(percentageInput.value);
+    if (isNaN(number) || number < 0 || number > 100) {
+        cgpaOutput.innerText = "Invalid input";
+        cgpaOutput.style.color = "red";
+    } else {
+        let CGPA = (number / 9.5).toFixed(2);
+        cgpaOutput.innerText = CGPA;
+        cgpaOutput.style.color = "black";
+    }
+});
+</script>
+</html>
